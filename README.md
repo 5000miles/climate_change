@@ -7,3 +7,15 @@ Contributors
     - Chang, Trevor
     - Reagin, Stephen
     - Steele, Nic(holas)
+### Problem statement and stuff
+    - talkd about perspective
+### Datasets
+    data-origin
+    
+### Workflow
+    -how we grabed data
+    -cleaning data
+    -EDA
+    -modeling
+    
+ ### Conclution 
