@@ -8,7 +8,7 @@ Contributors
     - Reagin, Stephen
     - Steele, Nicholas
 
-# Problem Statement
+# Problem Statement and Introduction
 
 **Can we use weather data to determine its decade of origin?**
 
