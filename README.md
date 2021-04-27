@@ -45,11 +45,9 @@ Our assumption is, with enough well-recorded data over long time stretches, we c
 - Date range: 1763 - Now
 - Values Provided: 137 variables
 
-Among those 1181,486 stations located all around the world, 1676 stations provide all variables we want. 
+Of the 181K stations located all around the world, only 1676 stations provide all the variables we want. These 1676 stations are located in 29 countries, although most are located in the US and Canada.
 
-These 1676 stations are located in 29 countries and most of them are located in US and Canada.
-
-We randomly selected one station from each of those countries. Then make the request to get all the data we want from 1979 to 1999.
+We randomly selected one station from each of those countries, then made an API request to get all the desired data from 1979 to 1999.
 
 #### NOAA Local Climatological Data (LCD)
 For the cities below, data was grabbed manually from the [NOAA LCD website:](https://www.ncdc.noaa.gov/cdo-web/datatools/lcd) <br>
