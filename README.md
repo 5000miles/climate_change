@@ -77,12 +77,43 @@ Hanford Station Data, 1946 - 2017: https://data.world/homerhanumat/hanford-stati
 
 
 # E.D.A.
-- Challenge: Tons of missing values in each datasets, and there are also some days, months or years have been skipped, no way to infer the missing values, so missing values are dropped. One special case: missing average temps have been replaced with (max + min)/2, eventhough the average temps are not exactly equal to (max + min)/2, the difference are very small which can be ignored.
-- Choice of variable: Predictors are mainly average/minimum/maximum temps, precipitation, snowfall/snow depth...
+Our exploratory analysis of the various weather datasets took the longest portion of time. Raw data files for weather come in a variety of shapes, sizes, and features. Some of the common weather variables we wanted to use include:
+- Datetime
+    - Sometimes by the hour, sometimes only as a daily or monthly measurement
+- Temperature
+    - Min, Max, Avg, hourly, et cetera
+    - *WetBulb* temp differs from *DryBulb* temp differs from *DewPoint* temp
+- Precipitation
+    - Rainfall, snow depth, et cetera
+- Windspeed and wind direction
+
+Efforts were made to ensure unit consistency, converting (*e.g.*) length measurements from imperial to standard or (*e.g.*) temperatures from Fahrenheit to Kelvins.
+
+*Missing data* was a consistent challenge for most datasets; sometimes days or months or even whole years have been skipped or lost in the original dataset. There's typically very few ways to infer these missing values and so they are more often dropped entirely. 
+
+We can also make certain approximations, e.g. creating an 'average' temperature by calculating (Max + Min) / 2. This method would not hold up to a line-by-line scrutiny against the true average, but it can be a useful replacement for some calculations. In those cases we assume the differences are likely small enough to be ignored.
+
 > EDA also uncovered summary findings such as rising temperatures over decades, which is a common theme across datasets as well
 
-# Modeling
-Models were made for NOAA city data and for the Canadian dataset. The logistic regrestion and random forest models were used to make the city data models. The models also used weather data that was collected at hourly intervals, with each city have 600,000 observations each. All the models for the city models used the default settings in sklearn to make them. Below is a table showing the accuracy scores. 
+|Decade|Houston, TX|Laguardia, NY|
+|----|-------|------|
+|1950| 293.74|285.80|
+|1960| 293.40|285.24|
+|1970| 293.22|285.36|
+|1980| 293.57|285.59|
+|1990| 294.20|286.36|
+|2000| 294.41|286.27|
+|2010| 294.77|286.74|
+
+
+# Modeling Predictions by Decade
+
+We decided to classify the data based on **Decade**, such that any data collected from 1950 - 1959 would be classified under *the 1950s* and so on.  We then trained models to associate certain weather patterns with certain decades, and ran test data attempting to classify it by decade.
+
+Specifically, we built Logistic Regression and Random Forest classification models for the NOAA city dataset, and we built Neural Net classification models for the Canada dataset (we also ran NOAA API data through this Canada model just for monkey testing). 
+
+### NOAA Hourly Data Classification
+The NOAA models used weather data that was collected at hourly intervals, with each city having roughly 600,000 observations each. The LogisticRegression() and RandomForest() models used the default parameters. Below is a table showing the accuracy scores. 
 
 | City          | Log.Regression      | RandomForest     |
 |---------------|---------------------|------------------|
@@ -97,16 +128,17 @@ Models were made for NOAA city data and for the Canadian dataset. The logistic r
 |Cities combined| train score: 0.424  |train score: 0.999|
 |               | test score:  0.423  |test score: 0.809 |
 
-The train and test scores for logistic regretion are very similar. The model that uses all the cities is has the highest acuracy score for models using logisic regretion. The baseline score for the data is 20%. The model is doubling the baseline just using logistic regression. The random forest models had higher accuracy scores than the logistic regretion models toping at 83%. The random forest models suffer from overfitting, but had some of the highest accuracy scores.
+The baseline expectation was something like 15% - 20% accuracy through random guessing.  As seen above, the models performed quite above baseline in most cases. The training and testing scores for Logistic Regression are very similar to one another, whereas the Random Forest model tended to overfit (even if the test accuracy was significantly higher, this overfitting reduces our confidence in the predictive capability of this model). The important takeaway: our standard Logistic Regression model predicted the Decade of given weather data quite above the baseline expectation with very little customization.
 
-The other model that was made was a neural net made with the canadian dataset. The model was made to predict which of 11 decades the data came from. The size of the canadian data set used had over 850,000 obsservations. The neural net had 3 hiden layers and an outout layer. Each hidden layer had 512 nodes and was made with a batch size of 256 and 30 epochs. The training accuracy was 48% and the test accuracy was 42%. The baseline for the Canadian dataset was 15%. 
+### Canada Station Data Classification
+The other model was a Neural Net based on the dataset for weather in Canada. This included over 850,000 observations, and the model was trained to predict which of 11 decades the data came from.  The Neural Net has 3 hidden layers with 512 nodes each, and was made with a batch size of 256 and 30 epochs. The training accuracy was 48% and the test accuracy was 42%. The baseline for the Canadian dataset was similarly 15%. 
 
-After the Canadian model was made, data from around the world was put into the model. Locations such as American Samoa, Germany, and Puerto Rico were used. These locations can have very diffrent climates than Canada. But we wanted to test to see if the effect of a changing climate that our neural net picked up on, could be detected with data from around the globe. After putting in global weather date from the NOAA our model was able to predict the global data with 38% accuracy. This is very close to the test accuracy of canadian data. This leads us to belive that what climate effects that are happening on the country wide level are also happening on a global scale too. 
+After the Canada neural net model was made, we also tested NOAA API data from around the world in the model. Locations such as American Samoa, Germany, and Puerto Rico were used, all of which can be expected to have very different climates than Canada at least some of the time (indeed, we even expect weather in some parts of Canada to be very different from other parts of Canada). But we tested this approach to see if the effect of a changing climate could be detected with data from around the globe. This neural net model, trained on Canada and now predicting data sourced from all over the globe, was able to predict the global data with 38% accuracy. This is very close to the test accuracy of the model on its original Canada data. This leads us to advance the idea that, whatever climate effects are happening on the country-wide level are also happening on a global scale too. 
 
 
 # Conclusion 
 
-The data analysis shows that tempatures are rising decade over decade. Adding the prdictive power of our model over local, country, and global levels, suggest the climate is changing from decade over decade. The limit of our model only give us insight that the climate is having a mesuarble change across decades, but not actual causes.  
+The data analysis shows that tempatures are rising decade over decade. Adding the predictive power of our model over local, country, and global levels, suggest the climate is changing from decade over decade. The limit of our model only give us insight that the climate is having a mesuarble change across decades, but not actual causes.  
 
 Further explorations could include analyzing what are factors are causing the change, and the downstream effects of these changes. Due to the limit of scope of this project we were not able to answer these questions. But our results from our data analysis and modeling suggest these are worth while ventures.
 
