@@ -12,13 +12,13 @@ Contributors
 
 **Can we use weather data to determine its decade of origin?**
 
-Weather data is a rich domain and has many characteristics that make prediction difficult, with other characteristics that show an underlying structure. The important characteristics for our investigation include:
-- Very many data sources keeping excellent records for decades
-- Noisy measurements with high variance
-- Notoriously hard to predict with precision
-- Continuous changes by hour and location
-- Follows reliable patterns (e.g. daily, seasonal)
-- Baseline changes occur gradually
+Weather data is a rich domain with many characteristics that make prediction difficult, and other characteristics which reveal an underlying structure. The important characteristics for our investigation include:
+- There exist very many data sources keeping excellent records for decades
+- Measurements can be noisy with high variance
+- Weather forecasting for a region (a city, say) is notoriously hard to predict with precision
+- There are continuous changes by hour and location
+- We can extrapolate from reliable patterns (e.g. daily and seasonal changes based on Earth's relative position with the Sun)
+- Baseline changes tend to occur gradually
 
 The *climate change hypothesis* in its most basic form supposes that Earth's climate changes over time. Thus, climate outputs (like weather) may differ in some time periods versus others. 
 
