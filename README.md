@@ -97,7 +97,7 @@ We can also make certain approximations, e.g. creating an 'average' temperature 
 
 > EDA also uncovered summary findings such as rising temperatures over decades, which is a common theme across datasets as well
 
-|Average Temperature (K) by Decade|
+##### Average Temperature (K) by Decade
 |Decade|Houston, TX|Laguardia, NY|Atlanta, GA|
 |----|-------|------|------|
 |1950| 293.74|285.80|285.42|
