@@ -49,7 +49,8 @@ These 1676 stations are located in 29 countries and most of them are located in 
 
 We randomly selected one station from each of those countries. Then make the request to get all the data we want from 1979 to 1999.
 
-For the cities below, data was grabbed manually from the NOAA LCD website: https://www.ncdc.noaa.gov/cdo-web/datatools/lcd <br>
+#### NOAA Local Climatological Data (LCD)
+For the cities below, data was grabbed manually from the [NOAA LCD website:](https://www.ncdc.noaa.gov/cdo-web/datatools/lcd) <br>
 Atlanta, GA -- data from 1945 - 2020, gap in 1972 - 1973 <br>
 Cincinnati, KY -- data from 1948 - 2020, gap in 1966 - 1973 <br>
 Houston, TX -- data from 1948 - 2020, gap in 1966 - 1973 <br>
