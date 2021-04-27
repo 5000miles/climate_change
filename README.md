@@ -95,16 +95,24 @@ We can also make certain approximations, e.g. creating an 'average' temperature 
 
 > EDA also uncovered summary findings such as rising temperatures over decades, which is a common theme across datasets as well
 
-|Decade|Houston, TX|Laguardia, NY|
-|----|-------|------|
-|1950| 293.74|285.80|
-|1960| 293.40|285.24|
-|1970| 293.22|285.36|
-|1980| 293.57|285.59|
-|1990| 294.20|286.36|
-|2000| 294.41|286.27|
-|2010| 294.77|286.74|
+|Average Temperature (K) by Decade|
+|Decade|Houston, TX|Laguardia, NY|Atlanta, GA|
+|----|-------|------|------|
+|1950| 293.74|285.80|285.42|
+|1960| 293.40|285.24|284.72|
+|1970| 293.22|285.36|284.65|
+|1980| 293.57|285.59|285.10|
+|1990| 294.20|286.36|285.42|
+|2000| 294.41|286.27|285.60|
+|2010| 294.77|286.74|286.06|
 
+285.42
+1960  -  284.72
+1970  -  284.65
+1980  -  285.10
+1990  -  285.42
+2000  -  285.60
+2010  -  286.06
 
 # Modeling Predictions by Decade
 
@@ -138,7 +146,6 @@ After the Canada neural net model was made, we also tested NOAA API data from ar
 
 # Conclusion 
 
-The data analysis shows that tempatures are rising decade over decade. Adding the predictive power of our model over local, country, and global levels, suggest the climate is changing from decade over decade. The limit of our model only give us insight that the climate is having a mesuarble change across decades, but not actual causes.  
+The data analysis shows that tempatures are rising decade over decade. Adding the predictive power of our clasiification models over local, country, and global levels, all the above suggests the climate is changing from decade over decade. The limit of our models serve to give us insight that the climate is having a measurable change across decades, although we did not investigate any explanatory causes.  
 
-Further explorations could include analyzing what are factors are causing the change, and the downstream effects of these changes. Due to the limit of scope of this project we were not able to answer these questions. But our results from our data analysis and modeling suggest these are worth while ventures.
-
+Further explorations might include analyzing which factors are most correlated with these change, potential causal influences, and the downstream effects of these changes. For example, flood insurance premiums near coastline may require reassessment if a warming Earth implies higher ocean levels (due to both thermal expansion of water, and possibly increased melted ice). Due to the limit of scope of this project we were not able to answer these questions. But our results from our data analysis and modeling suggest these are worthwhile ventures.
