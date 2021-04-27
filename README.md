@@ -64,14 +64,13 @@ US Daily Climate Normals (**not in repo**), 1981 - 2010 https://data.world/us-no
 Kenneth Curtis analyses, 1820 - 2015: https://data.world/kacurtis/global-and-city-yearly-average-temperatures-1750-2015 <br>
 Hanford Station Data, 1946 - 2017: https://data.world/homerhanumat/hanford-station-data <br>
 
-# Aquiring Data
 
-# EDA
+# E.D.A.
 - Challenge: Tons of missing values in each datasets, and there are also some days, months or years have been skipped, no way to infer the missing values, so missing values are dropped. One special case: missing average temps have been replaced with (max + min)/2, eventhough the average temps are not exactly equal to (max + min)/2, the difference are very small which can be ignored.
 - Choice of variable: Predictors are mainly average/minimum/maximum temps, precipitation, snowfall/snow depth...
 > EDA also uncovered summary findings such as rising temperatures over decades, which is a common theme across datasets as well
 
-### Modeling
+# Modeling
 Models were made for NOAA city data and for the Canadian dataset. The logistic regrestion and random forest models were used to make the city data models. The models also used weather data that was collected at hourly intervals, with each city have 600,000 observations each. All the models for the city models used the default settings in sklearn to make them. Below is a table showing the accuracy scores. 
 
 | City          | Log.Regression      | RandomForest     |
@@ -94,4 +93,9 @@ The other model that was made was a neural net made with the canadian dataset. T
 After the Canadian model was made, data from around the world was put into the model. Locations such as American Samoa, Germany, and Puerto Rico were used. These locations can have very diffrent climates than Canada. But we wanted to test to see if the effect of a changing climate that our neural net picked up on, could be detected with data from around the globe. After putting in global weather date from the NOAA our model was able to predict the global data with 38% accuracy. This is very close to the test accuracy of canadian data. This leads us to belive that what climate effects that are happening on the country wide level are also happening on a global scale too. 
 
 
-# Conclution 
+# Conclusion 
+
+The data analysis shows that tempatures are rising decade over decade. Adding the prdictive power of our model over local, country, and global levels, suggest the climate is changing from decade over decade. The limit of our model only give us insight that the climate is having a mesuarble change across decades, but not actual causes.  
+
+Further explorations could include analyzing what are factors are causing the change, and the downstream effects of these changes. Due to the limit of scope of this project we were not able to answer these questions. But our results from our data analysis and modeling suggest these are worth while ventures.
+
