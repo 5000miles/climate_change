@@ -7,9 +7,11 @@ Contributors
     - Chang, Trevor
     - Reagin, Stephen
     - Steele, Nicholas
+
 # Problem Statement
 
 **Can we use weather data to determine its decade of origin?**
+
 Weather data is a rich domain and has many characteristics that make prediction difficult, with other characteristics that show an underlying structure. The important characteristics for our investigation include:
 - Very many data sources keeping excellent records for decades
 - Noisy measurements with high variance
@@ -106,13 +108,6 @@ We can also make certain approximations, e.g. creating an 'average' temperature 
 |2000| 294.41|286.27|285.60|
 |2010| 294.77|286.74|286.06|
 
-285.42
-1960  -  284.72
-1970  -  284.65
-1980  -  285.10
-1990  -  285.42
-2000  -  285.60
-2010  -  286.06
 
 # Modeling Predictions by Decade
 
